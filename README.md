@@ -60,5 +60,31 @@ cmake -D CMAKE_BUILD_TYPE:STRING=Debug ../llvmstuff
 make -j4
 ```
 
-## Using Facts Inserter
+This will generate the pass shared object `libFactsInserter.so` in the folder `Debug-build/llvmpasses/FactsInserter`.
 
+## Using Facts Inserter
+To run the pass, use the path to the shared object along with the supported arguments:
+```
+opt -load Debug-build/llvmpasses/FactsInserter/libFactsInserter.so -insfacts <arguments> <input_bc_file>
+```
+Supported arguments:
+
+```
+  Select sensitivity of the facts to be inserted.
+    -ns                                                                            - Insensitive
+    -fs                                                                            - Flow sensitive.
+    -ps                                                                            - Path sensitive.
+    -cs                                                                            - Context sensitive.
+    -fps                                                                           - Flow and path sensitive.
+    -fcs                                                                           - Flow and context sensitive.
+  Select fact type to be inserted
+    -dataptr                                                                       - Data pointer facts.
+    -funcptr                                                                       - Function pointer facts.
+
+  -numFacts=<Unsigned long value indicating total number of facts to be inserted.> - Total number of facts to be inserted.
+
+ -outputFile=<Path of the output file.>                                           - Path to the output file, where all the warnings should be stored.
+
+```
+
+Example:

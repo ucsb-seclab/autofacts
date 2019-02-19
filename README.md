@@ -37,7 +37,7 @@ export PATH=$LLVM_DIR/bin:$PATH
 
 > Build Facts Inserter
 
-5) Download the SVF source code
+5) Download the autofacts source code
 ```
 git clone https://github.com/ucsb-seclab/autofacts autofacts
 ```

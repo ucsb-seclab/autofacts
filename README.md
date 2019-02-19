@@ -87,4 +87,15 @@ Supported arguments:
 
 ```
 
-Example:
+### Example:
+
+An example bitcode file is placed under the folder 'examples'. 
+
+To insert 4 (`-numFacts=4`), data pointer (`-dataptr`), flow-sensitive (`-fs`) facts into the bitcode file `examples/simple.bc` and create a new bitcode file `examples/simple_output.bc` (argument to `-o`) with output written to `stats.json` (argument to `-outputFile`).
+
+Run the following command:
+```
+opt -load Debug-build/llvmpasses/FactsInserter/libFactsInserter.so -insfacts -fs -dataptr -numFacts=4 -outputFile=stats.json examples/simple.bc -o examples/simple_output.bc
+```
+
+__Note:__ As the insertion logic is random, running the pass multiple times might insert facts at different places i.e., different functions and basic blocks.

@@ -99,3 +99,7 @@ opt -load Debug-build/llvmpasses/FactsInserter/libFactsInserter.so -insfacts -fs
 ```
 
 __Note:__ As the insertion logic is random, running the pass multiple times might insert facts at different places i.e., different functions and basic blocks.
+
+## Dataset
+
+We have generated dataset for few programs and they are present under folder: `sample_dataset`
